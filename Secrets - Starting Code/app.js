@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose =require("mongoose");
@@ -24,8 +24,8 @@ var userSchema = new mongoose.Schema({
     password:String
   });
 
-const secret="Thisisourlittlesecret.";
-userSchema.plugin(encrypt, {secret:secret,encryptedFields:["password"]});
+//const secret="Thisisourlittlesecret.";
+userSchema.plugin(encrypt, {secret:process.env.SECRET,encryptedFields:["password"]});
   
 var User = new mongoose.model("User",userSchema);
 
@@ -81,3 +81,4 @@ app.get("/register", function(req, res) {
 app.listen(5000, (req, res)=>{
      console.log("The Server has started successfully on PORT 5000")
 });
+
