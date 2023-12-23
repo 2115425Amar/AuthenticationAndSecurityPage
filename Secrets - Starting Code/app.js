@@ -39,7 +39,7 @@ app.use(passport.session());
 
 
 
-mongoose.connect('mongodb+srv://amar2115425:0A2qyAWPDFwnVR1o@cluster0.qdrwksg.mongodb.net/?retryWrites=true&w=majority',{
+mongoose.connect('put your database link',{
     useNewUrlParser: true,
 useUnifiedTopology:true});
 //mongoose.set("useCreateIndex",true);
